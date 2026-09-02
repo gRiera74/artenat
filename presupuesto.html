@@ -156,10 +156,10 @@
       <h1>Solicitar Presupuesto</h1>
       <p class="subtitle">Cuéntanos sobre tu proyecto y te contactaremos a la mayor brevedad.</p>
       
-      <form action="https://formsubmit.co/rierarierag@gmail.com" method="POST" enctype="multipart/form-data" id="budgetForm">
+      <form action="https://formsubmit.co/rierarierag@gmail.com" method="POST" id="budgetForm">
         
         <input type="hidden" name="_subject" value="Nueva solicitud de presupuesto - ArteNat">
-        <input type="hidden" name="_next" value="gracias.html">
+        <input type="hidden" name="_next" value="https://www.artenat.es/gracias.html">
         <input type="hidden" name="_captcha" value="false">
 
         <div class="form-row">
@@ -236,6 +236,21 @@
       <span>Contacto: <a href="mailto:rierarierag@gmail.com">rierarierag@gmail.com</a></span>
     </p>
   </footer>
+
+  <script>
+    // Ajusta el enctype dinámicamente si el usuario selecciona archivos
+    document.getElementById('budgetForm').addEventListener('submit', function(e) {
+      const file1 = document.getElementById('attachment1').files.length;
+      const file2 = document.getElementById('attachment2').files.length;
+      const file3 = document.getElementById('attachment3').files.length;
+
+      if (file1 > 0 || file2 > 0 || file3 > 0) {
+        this.enctype = "multipart/form-data";
+      } else {
+        this.removeAttribute('enctype');
+      }
+    });
+  </script>
 
 </body>
 </html>
