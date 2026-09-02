@@ -1,0 +1,421 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muros de Piedra y Mampostería Artesanal | ArteNat</title>
+  <meta name="description" content="Especialistas en mampostería tradicional, piedra seca, revestimiento de fachadas, muros y restauración en Alicante y Valencia. Contacta con Guillermo Riera.">
+  <meta name="keywords" content="mamposteria alicante, muros de piedra valencia, piedra seca, revestimiento piedra, restauracion riuraus, Guillermo Riera">
+  <style>
+    :root {
+      --color-primary: #8C6D53;
+      --color-primary-dark: #6F533C;
+      --color-secondary: #3D352E;
+      --color-bg: #F8F6F3;
+      --color-surface: #FFFFFF;
+      --color-text: #2C2825;
+      --color-muted: #665E57;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-main); background-color: var(--color-bg); color: var(--color-text); line-height: 1.6; }
+
+    /* HEADER */
+    header { 
+      background-color: var(--color-surface); 
+      border-bottom: 3px solid var(--color-primary); 
+      padding: 0.8rem 2rem; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      position: sticky; top: 0; z-index: 100;
+    }
+    
+    .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-svg { height: 50px; width: auto; transition: transform 0.2s ease; }
+    .logo-container:hover .logo-svg { transform: scale(1.03); }
+    .logo-text-group { display: flex; flex-direction: column; }
+    .logo-text { font-size: 1.3rem; font-weight: 800; color: var(--color-secondary); letter-spacing: 1.5px; text-transform: uppercase; line-height: 1; }
+    .logo-subtext { font-size: 0.7rem; color: var(--color-primary); font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; margin-top: 3px; }
+
+    nav.main-nav { display: flex; align-items: center; gap: 1.5rem; }
+    nav.main-nav a.nav-link { text-decoration: none; color: var(--color-secondary); font-weight: 600; font-size: 0.95rem; transition: color 0.2s ease; }
+    nav.main-nav a.nav-link:hover { color: var(--color-primary); }
+
+    .phone-badge { font-weight: 700; color: var(--color-secondary); text-decoration: none; font-size: 0.9rem; background: #F4EFEA; padding: 0.4rem 0.8rem; border-radius: 4px; border: 1px solid var(--color-primary); }
+    .btn-nav { background-color: var(--color-primary); color: #FFF !important; padding: 0.5rem 1.1rem; border-radius: 4px; font-weight: 700 !important; font-size: 0.88rem !important; transition: background-color 0.2s ease; }
+    .btn-nav:hover { background-color: var(--color-primary-dark); }
+
+    /* HERO */
+    .hero { 
+      background: linear-gradient(rgba(61, 53, 46, 0.85), rgba(61, 53, 46, 0.85)), url('imagenes/muro-contencion-piedra.jpg') center/cover no-repeat; 
+      color: #FFF; text-align: center; padding: 5.5rem 1rem; 
+    }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 800; }
+    .hero p { font-size: 1.15rem; max-width: 700px; margin: 0 auto 2rem auto; color: #E5D9CC; }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-hero { padding: 0.85rem 1.8rem; border-radius: 5px; font-weight: 700; text-decoration: none; transition: background 0.2s; font-size: 1.05rem; }
+    .btn-hero-primary { background: var(--color-primary); color: #FFF; }
+    .btn-hero-primary:hover { background: var(--color-primary-dark); }
+    .btn-hero-secondary { background: transparent; color: #FFF; border: 2px solid #FFF; }
+    .btn-hero-secondary:hover { background: rgba(255,255,255,0.15); }
+
+    /* SECCIÓN QUIÉNES SOMOS / MAESTRÍA ARTESANAL */
+    .about-section { background-color: #EFE9E2; padding: 4rem 1.5rem; }
+    .about-grid { max-width: 1050px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
+    .about-img { width: 100%; height: 350px; object-fit: cover; border-radius: 8px; box-shadow: 0 6px 16px rgba(0,0,0,0.12); border: 4px solid var(--color-surface); cursor: pointer; transition: opacity 0.2s; }
+    .about-img:hover { opacity: 0.95; }
+    .about-text h2 { font-size: 2rem; color: var(--color-secondary); margin-bottom: 0.8rem; letter-spacing: 0.5px; }
+    .about-text .lead-text { font-size: 1.1rem; color: var(--color-primary-dark); font-weight: 700; margin-bottom: 1rem; }
+    .about-text p { font-size: 0.98rem; color: var(--color-muted); margin-bottom: 1.2rem; line-height: 1.6; }
+    
+    .about-features { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1rem; }
+    .about-features li { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--color-secondary); font-size: 0.95rem; }
+    .about-features svg { width: 20px; height: 20px; color: var(--color-primary); flex-shrink: 0; }
+
+    /* SECCIÓN SERVICIOS */
+    section.content-section { padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+    .section-title { text-align: center; font-size: 1.9rem; color: var(--color-secondary); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
+    .section-subtitle { text-align: center; color: var(--color-muted); font-size: 1rem; margin-bottom: 3rem; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.8rem; }
+    .service-card { background: var(--color-surface); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+    
+    .card-img-wrapper { position: relative; overflow: hidden; height: 220px; cursor: pointer; }
+    .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+    .card-img-wrapper:hover img { transform: scale(1.04); }
+    
+    .gallery-badge {
+      position: absolute; bottom: 10px; right: 10px;
+      background: rgba(0, 0, 0, 0.7); color: #fff;
+      padding: 4px 10px; border-radius: 20px; font-size: 0.8rem;
+      display: flex; align-items: center; gap: 5px; backdrop-filter: blur(2px);
+    }
+
+    .service-card-body { padding: 1.5rem; border-top: 4px solid var(--color-primary); flex-grow: 1; }
+    .service-card h3 { font-size: 1.25rem; color: var(--color-secondary); margin-bottom: 0.6rem; }
+    .service-card p { font-size: 0.93rem; color: var(--color-muted); line-height: 1.5; }
+
+    /* PROCESO PASO A PASO */
+    .process-section { background-color: var(--color-surface); border-radius: 12px; padding: 3.5rem 2rem; box-shadow: 0 4px 18px rgba(0,0,0,0.04); margin-top: 2rem; }
+    .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .process-step { position: relative; padding: 1.5rem; background: var(--color-bg); border-radius: 8px; border-left: 4px solid var(--color-primary); }
+    .step-number { font-size: 2rem; font-weight: 900; color: var(--color-primary); line-height: 1; margin-bottom: 0.5rem; }
+    .process-step h4 { font-size: 1.05rem; color: var(--color-secondary); margin-bottom: 0.4rem; }
+    .process-step p { font-size: 0.88rem; color: var(--color-muted); line-height: 1.5; }
+
+    /* LIGHTBOX CON INMOVILIZACIÓN DE SCROLL */
+    .lightbox-modal {
+      display: none; position: fixed; z-index: 1000; top: 0; left: 0; 
+      width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); 
+      justify-content: center; align-items: center; flex-direction: column;
+      backdrop-filter: blur(5px);
+    }
+    .lightbox-container { position: relative; max-width: 90%; max-height: 80vh; display: flex; flex-direction: column; align-items: center; }
+    .lightbox-content { max-width: 100%; max-height: 75vh; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); border: 2px solid #FFF; object-fit: contain; }
+    .lightbox-caption { color: #FFF; margin-top: 12px; font-size: 1.05rem; font-weight: 500; text-align: center; background: rgba(0,0,0,0.6); padding: 6px 16px; border-radius: 4px; max-width: 800px; }
+    
+    .lightbox-close { position: absolute; top: 20px; right: 30px; color: #FFF; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 1001; }
+    .lightbox-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.2); color: white; border: none;
+      font-size: 2rem; padding: 12px 18px; cursor: pointer; border-radius: 4px;
+      transition: background 0.2s; user-select: none;
+    }
+    .lightbox-btn:hover { background: var(--color-primary); }
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
+
+    /* WHATSAPP FLOTANTE */
+    .whatsapp-float { 
+      position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; 
+      background-color: #25d366; color: #FFF; border-radius: 50%; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25); z-index: 999; 
+      display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); }
+    .whatsapp-float svg { width: 34px; height: 34px; fill: currentColor; }
+
+    /* FOOTER */
+    footer { background-color: var(--color-secondary); color: #FFFFFF; text-align: center; padding: 2rem 1rem; margin-top: 3rem; font-size: 0.9rem; border-top: 1px solid #4D443D; }
+    footer a { color: #E6CBB3; font-weight: 700; text-decoration: none; }
+
+    @media (max-width: 850px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-img { height: 260px; }
+      .lightbox-btn { padding: 8px 12px; font-size: 1.5rem; }
+    }
+    @media (max-width: 768px) {
+      header { flex-direction: column; gap: 0.8rem; padding: 1rem; text-align: center; }
+      nav.main-nav { gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo-container">
+      <svg class="logo-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="200" cy="200" r="190" fill="#F4EFEA" stroke="#4A3E3D" stroke-width="10"/>
+        <circle cx="200" cy="200" r="175" fill="none" stroke="#8C6D53" stroke-width="4" stroke-dasharray="8,6"/>
+        <g fill="none" stroke="#4A3E3D" stroke-width="3.5" opacity="0.7">
+          <line x1="120" y1="50" x2="120" y2="120"/><line x1="140" y1="38" x2="140" y2="120"/><line x1="160" y1="30" x2="160" y2="120"/>
+          <line x1="180" y1="26" x2="180" y2="120"/><line x1="200" y1="25" x2="200" y2="120"/><line x1="220" y1="26" x2="220" y2="120"/>
+          <line x1="240" y1="30" x2="240" y2="120"/><line x1="260" y1="38" x2="260" y2="120"/><line x1="280" y1="50" x2="280" y2="120"/>
+        </g>
+        <g fill="#E5D9CC" stroke="#4A3E3D" stroke-width="3">
+          <path d="M 80 125 L 130 125 L 125 145 L 85 145 Z"/><path d="M 135 125 L 195 125 L 190 145 L 130 145 Z"/>
+          <path d="M 200 125 L 265 125 L 260 145 L 195 145 Z"/><path d="M 270 125 L 320 125 L 315 145 L 265 145 Z"/>
+        </g>
+        <rect x="15" y="155" width="370" height="90" fill="#4A3E3D" rx="6"/>
+        <rect x="25" y="163" width="350" height="74" fill="none" stroke="#8C6D53" stroke-width="3"/>
+        <text x="200" y="218" font-family="'Georgia', serif" font-size="52" font-weight="900" fill="#F9F7F5" letter-spacing="4" text-anchor="middle">ARTENAT</text>
+        <g fill="#D8C7B5" stroke="#4A3E3D" stroke-width="3.5" stroke-linejoin="round">
+          <path d="M 45 255 L 110 255 L 105 280 L 55 280 Z"/><path d="M 115 255 L 190 255 L 185 280 L 110 280 Z"/>
+          <path d="M 195 255 L 275 255 L 270 280 L 190 280 Z"/><path d="M 280 255 L 355 255 L 345 280 L 275 280 Z"/>
+          <path d="M 70 285 L 145 285 L 140 315 L 80 315 Z"/><path d="M 150 285 L 245 285 L 240 315 L 145 315 Z"/>
+          <path d="M 250 285 L 330 285 L 320 315 L 245 315 Z"/><path d="M 110 320 L 195 320 L 190 350 L 125 350 Z"/>
+          <path d="M 200 320 L 290 320 L 275 350 L 195 350 Z"/>
+        </g>
+      </svg>
+      <div class="logo-text-group">
+        <span class="logo-text">ArteNat</span>
+        <span class="logo-subtext">Mampostería en piedra natural</span>
+      </div>
+    </a>
+
+    <nav class="main-nav">
+      <a href="#nosotros" class="nav-link">Nosotros</a>
+      <a href="#servicios" class="nav-link">Servicios</a>
+      <a href="#proceso" class="nav-link">Proceso</a>
+      <a class="phone-badge">📞 649 55 11 84</a>
+      <a href="presupuesto.html" class="nav-link btn-nav">Pedir Presupuesto</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Muros de Piedra y Mampostería Artesanal</h1>
+    <p>Especialistas en piedra seca, revestimiento de fachadas y restauración de patrimonio. Solidez y belleza para tu proyecto. Garantía en todos nuestros trabajos.</p>
+    <div class="hero-btns">
+      <a href="presupuesto.html" class="btn-hero btn-hero-primary">Solicitar Presupuesto</a>
+      <a href="https://wa.me/34649551184?text=Hola,%20me%20gustar%C3%ADa%20consultar%20sobre%20un%20proyecto%20de%20mamposter%C3%ADa." target="_blank" class="btn-hero btn-hero-secondary">Consulta por WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- SECCIÓN QUIÉNES SOMOS / MAESTRÍA ARTESANAL -->
+  <section class="about-section" id="nosotros">
+    <div class="about-grid">
+      <img src="imagenes/muro-mamposteria.jpg" alt="Muro de mampostería realizada por ArteNat" class="about-img" onclick="openGallery('nosotros')">
+      <div class="about-text">
+        <h2>Maestría Artesanal en Piedra Natural</h2>
+        <p class="lead-text">Dirigido por Guillermo Riera Riera.</p>
+        <p>Con <strong>más de 25 años de experiencia</strong> trabajando la piedra en las provincias de Alicante y Valencia, en ArteNat combinamos el oficio tradicional del cantero con la precisión técnica que exigen los proyectos actuales.</p>
+        <p>Nos especializamos en devolver la vida a las estructuras autóctonas mediante muros de marjada, mampostería encarada y la restauración meticulosa de edificaciones tradicionales.</p>
+        
+        <ul class="about-features">
+          <li>
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>
+            Garantía en colocación y remates
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>
+            Trato directo, sin intermediarios
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>
+            Asesoría técnica a pie de obra
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="content-section">
+    <h2 class="section-title">Qué Hacemos</h2>
+    <p class="section-subtitle">Soluciones artesanales en piedra natural adaptadas a parcelas, viviendas y proyectos de arquitectura.</p>
+    
+    <div class="services-grid">
+      
+      <!-- CARD 1: MUROS DE CONTENCIÓN -->
+      <div class="service-card">
+        <div class="card-img-wrapper" onclick="openGallery('muros')">
+          <img src="imagenes/muro-contencion-piedra.jpg" alt="Muro de contención en piedra natural">
+          <div class="gallery-badge">📷 2 fotos</div>
+        </div>
+        <div class="service-card-body">
+          <h3>Construcción de Muros de Contención</h3>
+          <p>Estructuras sólidas y funcionales en piedra seca o mampostería careada. Ideales para contención de terrenos, ribazos y cerramientos de parcelas.</p>
+        </div>
+      </div>
+
+      <!-- CARD 2: ESCALERAS Y REVESTIMIENTOS -->
+      <div class="service-card">
+        <div class="card-img-wrapper" onclick="openGallery('revestimientos')">
+          <img src="imagenes/revestimiento_fachada_6.jpg" alt="Vista lateral de fachada revestida en mampostería">
+          <div class="gallery-badge">🔍 Ver Galería (11 fotos)</div>
+        </div>
+        <div class="service-card-body">
+          <h3>Escaleras y Revestimientos de Fachadas</h3>
+          <p>Aplacado, chapado y construcción de peldaños en piedra natural (incluidos acabados de estilo <strong>rústico ibicenco</strong>) para exteriores e interiores. Aporta elegancia y resistencia.</p>
+        </div>
+      </div>
+
+      <!-- CARD 3: PAISAJISMO Y DECORACIÓN (JARDÍN) -->
+      <div class="service-card">
+        <div class="card-img-wrapper" onclick="openGallery('jardin')">
+          <img src="imagenes/jardin-piedra-natural.jpg" alt="Paisajismo y jardines en piedra natural">
+        </div>
+        <div class="service-card-body">
+          <h3>Paisajismo y Decoración</h3>
+          <p>Elementos ornamentales en piedra para exteriores: bancales de jardín, jardineras, caminos, barbacoas de obra y ambientes rústicos.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROCESO PASO A PASO -->
+  <section id="proceso" class="content-section" style="padding-top: 0;">
+    <div class="process-section">
+      <h2 class="section-title">Paso a Paso en tu Proyecto</h2>
+      <p class="section-subtitle">Un proceso transparente desde la primera consulta hasta la entrega de la obra.</p>
+
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-number">01</div>
+          <h4>Contacto Inicial</h4>
+          <p>Envíanos una descripción de tu obra o adjunta fotos a través de nuestro formulario web o por WhatsApp.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">02</div>
+          <h4>Asesoría y Visita</h4>
+          <p>Evaluamos el terreno in situ para aconsejarte sobre las mejores soluciones y materiales.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">03</div>
+          <h4>Presupuesto Claro</h4>
+          <p>Te entregamos una cotización detallada sin compromiso, adaptada al alcance real de tu obra.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">04</div>
+          <h4>Ejecución Artesanal</h4>
+          <p>Colocación y ajuste manual de la piedra, garantizando máxima estabilidad estructural y valor estético.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">05</div>
+          <h4>Entrega y Garantía</h4>
+          <p>Revisamos juntos los acabados finales para asegurar tu total conformidad con el resultado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX / VISOR DE IMÁGENES -->
+  <div id="lightboxModal" class="lightbox-modal">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <button class="lightbox-btn lightbox-prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="lightbox-btn lightbox-next" onclick="changeSlide(1)">&#10095;</button>
+    
+    <div class="lightbox-container">
+      <img class="lightbox-content" id="lightboxImg" alt="Imagen de trabajo en piedra">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <a href="https://wa.me/34649551184?text=Hola%20Guillermo,%20quisiera%20pedir%20presupuesto%20para%20un%20trabajo%20de%20mamposter%C3%ADa." class="whatsapp-float" target="_blank" aria-label="Contacto directo por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+      <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+    </svg>
+  </a>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>ArteNat — Guillermo Riera Riera</strong> | Teléfono: 649 55 11 84 | Contacto: <a href="mailto:rierarierag@gmail.com">rierarierag@gmail.com</a></p>
+  </footer>
+
+  <!-- SCRIPT CARRUSEL, LIGHTBOX Y CONTROL DE SCROLL -->
+  <script>
+    const galleries = {
+      nosotros: [
+        { src: 'imagenes/muro-mamposteria.jpg', caption: 'Obra de mampostería tradicional realizada por ArteNat.' }
+      ],
+      muros: [
+        { src: 'imagenes/muro-contencion-piedra.jpg', caption: 'Muro de contención de piedra natural y gran solidez estructural.' },
+        { src: 'imagenes/muro-piedra.jpg', caption: 'Muro tradicional en piedra colocada a mano.' }
+      ],
+      revestimientos: [
+        { src: 'imagenes/revestimiento_fachada_6.jpg', caption: 'Vista lateral de fachada revestida en mampostería.' },
+        { src: 'imagenes/revestimiento_fachada.jpg', caption: 'Revestimiento artesanal de fachada en piedra clara.' },
+        { src: 'imagenes/revestimiento_fachada_2_r.jpg', caption: 'Detalle de esquinas y remates en fachada de piedra.' },
+        { src: 'imagenes/revestimiento_fachada_3.jpg', caption: 'Revestimiento exterior en tono calizo natural.' },
+        { src: 'imagenes/revestimiento_fachada_4.jpg', caption: 'Integración de piedra natural en arquitectura residencial.' },
+        { src: 'imagenes/revestimiento_fachada_5.jpg', caption: 'Aplacado en muro y fachada con junta trabajada.' },
+        { src: 'imagenes/revestimiento-rustico-junta-maeterial.jpg', caption: 'Detalle de mampostería rústica con junta de mortero.' },
+        { src: 'imagenes/rustico-ibizenco.jpg', caption: 'Muro estilo Rústico Ibicenco en piedra con tonos cálidos.' },
+        { src: 'imagenes/rustico-ibizenco_2.jpg', caption: 'Detalle de colocación artesanal en estilo ibicenco.' },
+        { src: 'imagenes/rustico-ibizenco_3.jpg', caption: 'Fachada con acabado rústico ibicenco en luz natural.' },
+        { src: 'imagenes/muro-revestimiento-piedra.jpg', caption: 'Muro revestido en piedra cortada y encajada.' }
+      ],
+      jardin: [
+        { src: 'imagenes/jardin-piedra-natural.jpg', caption: 'Proyecto de paisajismo, bancales y muros de jardín en piedra natural.' }
+      ]
+    };
+
+    let currentGallery = [];
+    let currentIndex = 0;
+
+    function openGallery(galleryKey, index = 0) {
+      currentGallery = galleries[galleryKey];
+      currentIndex = index;
+      updateLightbox();
+      document.getElementById('lightboxModal').style.display = 'flex';
+      
+      // BLOQUEA EL SCROLL DE LA PÁGINA TRASERA
+      document.body.style.overflow = 'hidden';
+    }
+
+    function updateLightbox() {
+      const item = currentGallery[currentIndex];
+      document.getElementById('lightboxImg').src = item.src;
+      document.getElementById('lightboxCaption').innerText = item.caption + ` (${currentIndex + 1} de ${currentGallery.length})`;
+      
+      const btns = document.querySelectorAll('.lightbox-btn');
+      btns.forEach(btn => btn.style.display = currentGallery.length > 1 ? 'block' : 'none');
+    }
+
+    function changeSlide(direction) {
+      currentIndex = (currentIndex + direction + currentGallery.length) % currentGallery.length;
+      updateLightbox();
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightboxModal').style.display = 'none';
+      
+      // RESTAURAR SCROLL AL CERRAR
+      document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft' && currentGallery.length > 1) changeSlide(-1);
+      if (e.key === 'ArrowRight' && currentGallery.length > 1) changeSlide(1);
+    });
+
+    document.getElementById('lightboxModal').addEventListener('click', (e) => {
+      if (e.target.id === 'lightboxModal') closeLightbox();
+    });
+  </script>
+
+</body>
+</html>

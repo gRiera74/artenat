@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Gracias por contactar! | ArteNat</title>
+  <meta name="robots" content="noindex, follow">
+  <style>
+    :root {
+      --color-primary: #8C6D53;
+      --color-primary-dark: #6F533C;
+      --color-secondary: #3D352E;
+      --color-bg: #F8F6F3;
+      --color-surface: #FFFFFF;
+      --color-text: #2C2825;
+      --color-muted: #665E57;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+
+    body { 
+      font-family: var(--font-main); 
+      background-color: var(--color-bg); 
+      color: var(--color-text); 
+      line-height: 1.5; 
+      display: flex; 
+      flex-direction: column; 
+    }
+
+    /* HEADER UNIFICADO */
+    header { 
+      background-color: var(--color-surface); 
+      border-bottom: 3px solid var(--color-primary); 
+      padding: 0.8rem 2rem; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      flex-shrink: 0;
+    }
+
+    .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-svg { height: 52px; width: auto; transition: transform 0.2s ease; }
+    .logo-container:hover .logo-svg { transform: scale(1.03); }
+
+    .logo-text-group { display: flex; flex-direction: column; }
+    .logo-text { font-size: 1.4rem; font-weight: 800; color: var(--color-secondary); letter-spacing: 1.5px; text-transform: uppercase; line-height: 1; }
+    .logo-subtext { font-size: 0.72rem; color: var(--color-primary); font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; margin-top: 3px; }
+
+    nav.main-nav { display: flex; align-items: center; gap: 1.5rem; }
+    nav.main-nav a.nav-link { text-decoration: none; color: var(--color-secondary); font-weight: 600; font-size: 0.95rem; transition: color 0.2s ease; }
+    nav.main-nav a.nav-link:hover { color: var(--color-primary); }
+
+    .phone-badge { font-weight: 700; color: var(--color-secondary); text-decoration: none; font-size: 0.9rem; background: #F4EFEA; padding: 0.4rem 0.8rem; border-radius: 4px; border: 1px solid var(--color-primary); }
+
+    /* CONTENEDOR CENTRAL */
+    .container { 
+      max-width: 520px; 
+      margin: auto; 
+      padding: 2rem 1rem; 
+      width: 100%; 
+      text-align: center; 
+      flex: 1; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .thankyou-card { 
+      background: var(--color-surface); 
+      padding: 2.2rem 1.8rem; 
+      border-radius: 8px; 
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06); 
+      border-top: 5px solid var(--color-primary); 
+      width: 100%;
+    }
+    
+    .check-icon {
+      width: 56px;
+      height: 56px;
+      background-color: #F4EFEA;
+      border: 2px solid var(--color-primary);
+      color: var(--color-primary);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    .thankyou-card h1 { font-size: 1.6rem; color: var(--color-secondary); margin-bottom: 0.5rem; }
+    .thankyou-card p { color: var(--color-muted); font-size: 0.95rem; margin-bottom: 1.2rem; }
+    
+    .highlight-box { 
+      background: #F4EFEA; 
+      border: 1px dashed var(--color-primary); 
+      padding: 1rem; 
+      border-radius: 6px; 
+      margin-bottom: 1.5rem; 
+    }
+    .highlight-box p { margin: 0; color: var(--color-secondary); font-weight: 600; font-size: 0.9rem; }
+
+    .btn { 
+      display: inline-block; 
+      background-color: var(--color-primary); 
+      color: #FFF; 
+      padding: 0.75rem 1.6rem; 
+      text-decoration: none; 
+      border-radius: 4px; 
+      font-weight: 700; 
+      font-size: 0.95rem; 
+      transition: background-color 0.2s; 
+    }
+    .btn:hover { background-color: var(--color-primary-dark); }
+
+    /* FOOTER UNIFICADO */
+    footer { 
+      background-color: var(--color-secondary); 
+      color: #FFFFFF; 
+      text-align: center; 
+      padding: 1.3rem 1rem; 
+      font-size: 0.9rem; 
+      flex-shrink: 0;
+      border-top: 1px solid #4D443D;
+    }
+
+    footer p { color: #FFFFFF; margin: 0; }
+    footer .phone-highlight { color: #E6CBB3; font-weight: 800; }
+    footer .email-highlight { color: #E6CBB3; font-weight: 700; text-decoration: none; border-bottom: 1px dashed #E6CBB3; padding-bottom: 1px; transition: color 0.2s; }
+    footer .email-highlight:hover { color: #FFF; border-bottom-style: solid; }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; gap: 0.8rem; padding: 1rem; text-align: center; }
+      nav.main-nav { gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER UNIFICADO -->
+  <header>
+    <a href="index.html" class="logo-container">
+      <svg class="logo-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="200" cy="200" r="190" fill="#F4EFEA" stroke="#4A3E3D" stroke-width="10"/>
+        <circle cx="200" cy="200" r="175" fill="none" stroke="#8C6D53" stroke-width="4" stroke-dasharray="8,6"/>
+        <g fill="none" stroke="#4A3E3D" stroke-width="3.5" opacity="0.7">
+          <line x1="120" y1="50" x2="120" y2="120"/><line x1="140" y1="38" x2="140" y2="120"/><line x1="160" y1="30" x2="160" y2="120"/>
+          <line x1="180" y1="26" x2="180" y2="120"/><line x1="200" y1="25" x2="200" y2="120"/><line x1="220" y1="26" x2="220" y2="120"/>
+          <line x1="240" y1="30" x2="240" y2="120"/><line x1="260" y1="38" x2="260" y2="120"/><line x1="280" y1="50" x2="280" y2="120"/>
+        </g>
+        <g fill="#E5D9CC" stroke="#4A3E3D" stroke-width="3">
+          <path d="M 80 125 L 130 125 L 125 145 L 85 145 Z"/><path d="M 135 125 L 195 125 L 190 145 L 130 145 Z"/>
+          <path d="M 200 125 L 265 125 L 260 145 L 195 145 Z"/><path d="M 270 125 L 320 125 L 315 145 L 265 145 Z"/>
+        </g>
+        <rect x="15" y="155" width="370" height="90" fill="#4A3E3D" rx="6"/>
+        <rect x="25" y="163" width="350" height="74" fill="none" stroke="#8C6D53" stroke-width="3"/>
+        <text x="200" y="218" font-family="'Georgia', serif" font-size="52" font-weight="900" fill="#F9F7F5" letter-spacing="4" text-anchor="middle">ARTENAT</text>
+        <g fill="#D8C7B5" stroke="#4A3E3D" stroke-width="3.5" stroke-linejoin="round">
+          <path d="M 45 255 L 110 255 L 105 280 L 55 280 Z"/><path d="M 115 255 L 190 255 L 185 280 L 110 280 Z"/>
+          <path d="M 195 255 L 275 255 L 270 280 L 190 280 Z"/><path d="M 280 255 L 355 255 L 345 280 L 275 280 Z"/>
+          <path d="M 70 285 L 145 285 L 140 315 L 80 315 Z"/><path d="M 150 285 L 245 285 L 240 315 L 145 315 Z"/>
+          <path d="M 250 285 L 330 285 L 320 315 L 245 315 Z"/><path d="M 110 320 L 195 320 L 190 350 L 125 350 Z"/>
+          <path d="M 200 320 L 290 320 L 275 350 L 195 350 Z"/>
+        </g>
+      </svg>
+      <div class="logo-text-group">
+        <span class="logo-text">ArteNat</span>
+        <span class="logo-subtext">Mampostería en piedra natural</span>
+      </div>
+    </a>
+
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Inicio</a>
+      <a class="phone-badge">📞 649 55 11 84</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="thankyou-card">
+      <div class="check-icon">✓</div>
+
+      <h1>¡Solicitud Recibida!</h1>
+      <p>Hemos recibido los detalles de tu consulta correctamente.</p>
+      
+      <div class="highlight-box">
+        <p>Analizaremos la petición y te responderemos por correo electrónico o teléfono a la mayor brevedad posible.</p>
+      </div>
+
+      <a href="index.html" class="btn">Volver al Inicio</a>
+    </div>
+  </main>
+
+  <footer>
+    <p><strong>ArteNat — Guillermo Riera Riera</strong> | Teléfono directo: <span class="phone-highlight">649 55 11 84</span> | Contacto: <a href="mailto:rierarierag@gmail.com" class="email-highlight">rierarierag@gmail.com</a></p>
+  </footer>
+
+</body>
+</html>
