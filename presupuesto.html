@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -44,7 +44,9 @@
     nav.main-nav a.nav-link { text-decoration: none; color: var(--color-secondary); font-weight: 600; font-size: 0.95rem; transition: color 0.2s ease; }
     nav.main-nav a.nav-link:hover { color: var(--color-primary); }
 
-    .phone-badge { font-weight: 700; color: var(--color-secondary); text-decoration: none; font-size: 0.9rem; background: #F4EFEA; padding: 0.4rem 0.8rem; border-radius: 4px; border: 1px solid var(--color-primary); }
+    .phone-badge { font-weight: 700; color: var(--color-secondary); text-decoration: none; font-size: 0.9rem; background: #F4EFEA; padding: 0.4rem 0.8rem; border-radius: 4px; border: 1px solid var(--color-primary); transition: background 0.2s; }
+    .phone-badge:hover { background: var(--color-primary); color: #FFF; }
+
     .btn-nav { background-color: var(--color-primary); color: #FFF !important; padding: 0.5rem 1.1rem; border-radius: 4px; font-weight: 700 !important; font-size: 0.88rem !important; transition: background-color 0.2s ease; }
     .btn-nav:hover { background-color: var(--color-primary-dark); }
 
@@ -75,17 +77,33 @@
     .whatsapp-float { position: fixed; width: 55px; height: 55px; bottom: 25px; right: 25px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 999; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s; }
     .whatsapp-float:hover { transform: scale(1.1); }
 
-    /* FOOTER UNIFICADO */
-    footer { background-color: var(--color-secondary); color: #FFFFFF; text-align: center; padding: 1.3rem 1rem; margin-top: auto; font-size: 0.9rem; border-top: 1px solid #4D443D; }
-    footer .email-highlight { color: #E6CBB3; font-weight: 700; text-decoration: none; border-bottom: 1px dashed #E6CBB3; padding-bottom: 1px; transition: color 0.2s; }
-    footer .email-highlight:hover { color: #FFF; border-bottom-style: solid; }
-    footer .phone-highlight { color: #E6CBB3; font-weight: 800; }
+    /* FOOTER OPTIMIZADO PARA MÓVILES */
+    footer { 
+      background-color: var(--color-secondary); 
+      color: #FFFFFF; 
+      text-align: center; 
+      padding: 1.5rem 1rem; 
+      margin-top: auto; 
+      font-size: 0.9rem; 
+      border-top: 1px solid #4D443D; 
+    }
+    footer p {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    footer a { color: #E6CBB3; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    footer span { white-space: nowrap; }
 
     /* RESPONSIVE EN MÓVILES */
     @media (max-width: 768px) {
       header { flex-direction: column; gap: 0.8rem; padding: 1rem; text-align: center; }
       nav.main-nav { gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
-      .col-half { flex: 0 0 100%; max-width: 100%; } /* Pasa a 1 sola columna en pantallas pequeñas */
+      .col-half { flex: 0 0 100%; max-width: 100%; }
       .form-card { padding: 1.5rem 1.2rem; }
     }
   </style>
@@ -127,8 +145,8 @@
     <nav class="main-nav">
       <a href="index.html" class="nav-link">Inicio</a>
       <a href="index.html#servicios" class="nav-link">Servicios</a>
-      <a href="index.html#galeria" class="nav-link">Proyectos</a>
-      <a href="tel:649551184" class="phone-badge">📞 649 55 11 84</a>
+      <a href="index.html#proceso" class="nav-link">Proceso</a>
+      <a href="tel:+34649551184" class="phone-badge">📞 649 55 11 84</a>
       <a href="index.html" class="nav-link btn-nav">← Volver a la Web</a>
     </nav>
   </header>
@@ -138,16 +156,13 @@
       <h1>Solicitar Presupuesto</h1>
       <p class="subtitle">Cuéntanos sobre tu proyecto y te contactaremos a la mayor brevedad.</p>
       
-      <!-- FORMULARIO REORGANIZADO EN COLUMNAS CON FORMSUBMIT -->
       <form action="https://formsubmit.co/rierarierag@gmail.com" method="POST" enctype="multipart/form-data" id="budgetForm">
         
         <input type="hidden" name="_subject" value="Nueva solicitud de presupuesto - ArteNat">
-        <!-- Recuerda ajustar la URL absoluta según tu entorno local o de producción -->
-        <input type="hidden" name="_next" value="https://www.artenat.es/gracias.html">
+        <input type="hidden" name="_next" value="gracias.html">
         <input type="hidden" name="_captcha" value="false">
 
         <div class="form-row">
-          <!-- FILA 1: NOMBRE Y EMAIL (2 COLUMNAS EN DESKTOP) -->
           <div class="col-half">
             <div class="form-group">
               <label for="nombre">Nombre y Apellidos *</label>
@@ -162,7 +177,6 @@
             </div>
           </div>
 
-          <!-- FILA 2: TELÉFONO Y TIPO DE TRABAJO (2 COLUMNAS EN DESKTOP) -->
           <div class="col-half">
             <div class="form-group">
               <label for="telefono">Teléfono (opcional)</label>
@@ -173,17 +187,16 @@
           <div class="col-half">
             <div class="form-group">
               <label for="servicio">Tipo de trabajo</label>
-<select id="servicio" name="Tipo_de_Trabajo">
-  <option value="Construcción de Muros de Contención / Cerramiento">Construcción de Muros de Piedra</option>
-  <option value="Revestimiento de Fachadas (Interior/Exterior)">Revestimiento / Chapado de Fachadas</option>
-  <option value="Restauración de Edificaciones Antiguas">Restauración y Patrimonio (Riuraus, etc.)</option>
-  <option value="Paisajismo y Elementos Decorativos">Paisajismo y Decoración (Jardines, Barbacoas...)</option>
-  <option value="Asesoría técnica y selección de piedra">Asesoría en Materiales y Diseño</option>
-</select>
+              <select id="servicio" name="Tipo_de_Trabajo">
+                <option value="Construcción de Muros de Contención / Cerramiento">Construcción de Muros de Piedra</option>
+                <option value="Revestimiento de Fachadas (Interior/Exterior)">Revestimiento / Chapado de Fachadas</option>
+                <option value="Restauración de Edificaciones Antiguas">Restauración y Patrimonio (Riuraus, etc.)</option>
+                <option value="Paisajismo y Elementos Decorativos">Paisajismo y Decoración (Jardines, Barbacoas...)</option>
+                <option value="Asesoría técnica y selección de piedra">Asesoría en Materiales y Diseño</option>
+              </select>
             </div>
           </div>
 
-          <!-- FILA 3: MENSAJE (1 COLUMNA COMPLETA) -->
           <div class="col-full">
             <div class="form-group">
               <label for="mensaje">Detalles de la obra o consulta</label>
@@ -191,7 +204,6 @@
             </div>
           </div>
 
-          <!-- FILA 4: SUBIDA DE HASTA 3 ARCHIVOS MULTI-ADJUNTO (1 COLUMNA COMPLETA) -->
           <div class="col-full">
             <div class="form-group">
               <label>Adjuntar fotos o planos del proyecto (opcional - hasta 3 archivos)</label>
@@ -203,7 +215,6 @@
             </div>
           </div>
 
-          <!-- BOTÓN DE ENVÍO -->
           <div class="col-full">
             <button type="submit" class="btn-submit">Enviar Solicitud</button>
           </div>
@@ -213,12 +224,17 @@
     </div>
   </main>
 
-  <a href="https://wa.me/34649551184?text=Hola%20Guillermo,%20quisiera%20pedir%20presupuesto%20para%20un%20trabajo%20de%20mamposter%C3%ADa." class="whatsapp-float" target="_blank" aria-label="Contacto por WhatsApp">
+  <a href="https://wa.me/34649551184?text=Hola%20Guillermo,%20quisiera%20pedir%20presupuesto%20para%20un%20trabajo%20de%20mamposter%C3%ADa." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contacto directo por WhatsApp">
     💬
   </a>
 
+  <!-- FOOTER -->
   <footer>
-    <p><strong>ArteNat — Guillermo Riera Riera</strong> | Teléfono: <span class="phone-highlight">649 55 11 84</span> | Contacto directo: <a href="mailto:rierarierag@gmail.com" class="email-highlight">rierarierag@gmail.com</a></p>
+    <p>
+      <span><strong>ArteNat</strong> — Guillermo Riera Riera</span>
+      <span>Teléfono: <a href="tel:+34649551184">649 55 11 84</a></span>
+      <span>Contacto: <a href="mailto:rierarierag@gmail.com">rierarierag@gmail.com</a></span>
+    </p>
   </footer>
 
 </body>
