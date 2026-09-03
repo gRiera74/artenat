@@ -6,6 +6,76 @@
   <title>Muros de Piedra y Mampostería Artesanal | ArteNat</title>
   <meta name="description" content="Especialistas en mampostería tradicional, piedra seca, revestimiento de fachadas, muros y restauración en Alicante y Valencia. Contacta con Guillermo Riera.">
   <meta name="keywords" content="mamposteria alicante, muros de piedra valencia, piedra seca, revestimiento piedra, restauracion riuraus, Guillermo Riera">
+
+  <!-- PhotoSwipe 5 CSS y Módulo JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.min.css">
+  <script type="module">
+    import PhotoSwipeLightbox from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe-lightbox.esm.min.js';
+    import PhotoSwipe from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.esm.min.js';
+
+    // Definición de galerías de imágenes con soporte de pinch-to-zoom
+    const galleriesData = {
+      nosotros: [
+        { src: 'imagenes/muro-mamposteria.jpg', width: 1200, height: 900, alt: 'Obra de mampostería tradicional realizada por ArteNat.' }
+      ],
+      muros: [
+        { src: 'imagenes/muro-contencion-piedra.jpg', width: 1200, height: 900, alt: 'Muro de contención de piedra natural y gran solidez estructural.' },
+        { src: 'imagenes/muro-piedra.jpg', width: 1200, height: 900, alt: 'Muro tradicional en piedra colocada a mano.' }
+      ],
+      revestimientos: [
+        { src: 'imagenes/revestimiento_fachada_6.jpg', width: 1200, height: 900, alt: 'Vista lateral de fachada revestida en mampostería.' },
+        { src: 'imagenes/revestimiento_fachada.jpg', width: 1200, height: 900, alt: 'Revestimiento artesanal de fachada en piedra clara.' },
+        { src: 'imagenes/revestimiento_fachada_2_r.jpg', width: 1200, height: 900, alt: 'Detalle de esquinas y remates en fachada de piedra.' },
+        { src: 'imagenes/revestimiento_fachada_3.jpg', width: 1200, height: 900, alt: 'Revestimiento exterior en tono calizo natural.' },
+        { src: 'imagenes/revestimiento_fachada_4.jpg', width: 1200, height: 900, alt: 'Integración de piedra natural en arquitectura residencial.' },
+        { src: 'imagenes/revestimiento_fachada_5.jpg', width: 1200, height: 900, alt: 'Aplacado en muro y fachada con junta trabajada.' },
+        { src: 'imagenes/revestimiento-rustico-junta-maeterial.jpg', width: 1200, height: 900, alt: 'Detalle de mampostería rústica con junta de mortero.' },
+        { src: 'imagenes/rustico-ibizenco.jpg', width: 1200, height: 900, alt: 'Muro estilo Rústico Ibicenco en piedra con tonos cálidos.' },
+        { src: 'imagenes/rustico-ibizenco_2.jpg', width: 1200, height: 900, alt: 'Detalle de colocación artesanal en estilo ibicenco.' },
+        { src: 'imagenes/rustico-ibizenco_3.jpg', width: 1200, height: 900, alt: 'Fachada con acabado rústico ibicenco en luz natural.' },
+        { src: 'imagenes/muro-revestimiento-piedra.jpg', width: 1200, height: 900, alt: 'Muro revestido en piedra cortada y encajada.' }
+      ],
+      jardin: [
+        { src: 'imagenes/jardin-piedra-natural.jpg', width: 1200, height: 900, alt: 'Proyecto de paisajismo, bancales y muros de jardín en piedra natural.' }
+      ]
+    };
+
+    // Función global para abrir PhotoSwipe desde los elementos onclick
+    window.openGallery = function(galleryKey, index = 0) {
+      const itemsData = galleriesData[galleryKey];
+      if (!itemsData) return;
+
+      const lightbox = new PhotoSwipeLightbox({
+        dataSource: itemsData,
+        pswpModule: PhotoSwipe,
+        bgOpacity: 0.9,
+        showHideAnimationType: 'fade'
+      });
+
+      // Leyenda o descripción de cada foto
+      lightbox.on('uiRegister', function() {
+        lightbox.pswp.ui.registerElement({
+          name: 'custom-caption',
+          order: 9,
+          isButton: false,
+          appendTo: 'root',
+          html: '',
+          onInit: (el, pswp) => {
+            pswp.on('change', () => {
+              const currSlide = pswp.currSlide;
+              if (currSlide && currSlide.data) {
+                el.innerHTML = currSlide.data.alt || '';
+              }
+            });
+          }
+        });
+      });
+
+      lightbox.init();
+      lightbox.loadAndOpen(index);
+    };
+  </script>
+
   <style>
     :root {
       --color-primary: #8C6D53;
@@ -108,44 +178,22 @@
     .process-step h4 { font-size: 1.05rem; color: var(--color-secondary); margin-bottom: 0.4rem; }
     .process-step p { font-size: 0.88rem; color: var(--color-muted); line-height: 1.5; }
 
-    /* LIGHTBOX ADAPTADO A MÓVILES Y SWIPE */
-    .lightbox-modal {
-      display: none; position: fixed; z-index: 1000; top: 0; left: 0; 
-      width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.92); 
-      justify-content: center; align-items: center; flex-direction: column;
-      backdrop-filter: blur(5px); touch-action: pan-y;
+    /* ESTILO LEYENDA PHOTOSWIPE */
+    .pswp__custom-caption {
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      font-size: 0.95rem;
+      padding: 8px 16px;
+      border-radius: 20px;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      max-width: 90%;
+      z-index: 1005;
+      pointer-events: none;
     }
-    .lightbox-container { 
-      position: relative; max-width: 90%; max-height: 80vh; 
-      display: flex; flex-direction: column; align-items: center; justify-content: center; 
-    }
-    .lightbox-content { 
-      max-width: 100%; max-height: 70vh; border-radius: 6px; 
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5); border: 2px solid #FFF; 
-      object-fit: contain; user-select: none; -webkit-user-drag: none;
-    }
-    .lightbox-caption { 
-      color: #FFF; margin-top: 12px; font-size: 1rem; font-weight: 500; 
-      text-align: center; background: rgba(0,0,0,0.7); padding: 8px 16px; 
-      border-radius: 20px; max-width: 90%; 
-    }
-    
-    .lightbox-close { 
-      position: absolute; top: 15px; right: 20px; color: #FFF; 
-      font-size: 38px; font-weight: bold; cursor: pointer; z-index: 1002; 
-      line-height: 1; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 50%;
-    }
-    
-    .lightbox-btn {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.6); color: white; border: 1px solid rgba(255,255,255,0.4);
-      font-size: 1.8rem; width: 48px; height: 48px; cursor: pointer; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.2s; user-select: none; z-index: 1001;
-    }
-    .lightbox-btn:hover { background: var(--color-primary); }
-    .lightbox-prev { left: 15px; }
-    .lightbox-next { right: 15px; }
 
     /* WHATSAPP FLOTANTE */
     .whatsapp-float { 
@@ -169,9 +217,6 @@
       header { flex-direction: column; gap: 0.8rem; padding: 1rem; text-align: center; }
       nav.main-nav { gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
       .hero h1 { font-size: 2rem; }
-      .lightbox-prev { left: 10px; }
-      .lightbox-next { right: 10px; }
-      .lightbox-btn { width: 42px; height: 42px; font-size: 1.4rem; background: rgba(0, 0, 0, 0.75); }
     }
   </style>
 </head>
@@ -341,18 +386,6 @@
     </div>
   </section>
 
-  <!-- LIGHTBOX / VISOR DE IMÁGENES -->
-  <div id="lightboxModal" class="lightbox-modal">
-    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-    <button class="lightbox-btn lightbox-prev" onclick="changeSlide(-1, event)">&#10094;</button>
-    <button class="lightbox-btn lightbox-next" onclick="changeSlide(1, event)">&#10095;</button>
-    
-    <div class="lightbox-container">
-      <img class="lightbox-content" id="lightboxImg" alt="Imagen ampliada de trabajo en piedra">
-      <div class="lightbox-caption" id="lightboxCaption"></div>
-    </div>
-  </div>
-
   <!-- BOTÓN FLOTANTE WHATSAPP -->
   <a href="https://wa.me/34649551184?text=Hola%20Guillermo,%20quisiera%20pedir%20presupuesto%20para%20un%20trabajo%20de%20mamposter%C3%ADa." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contacto directo por WhatsApp">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -364,110 +397,6 @@
   <footer>
     <p><strong>ArteNat — Guillermo Riera Riera</strong> | Teléfono: <a href="tel:+34649551184">649 55 11 84</a> | Contacto: <a href="mailto:rierarierag@gmail.com">rierarierag@gmail.com</a></p>
   </footer>
-
-  <!-- SCRIPT OPTIMIZADO -->
-  <script>
-    const galleries = {
-      nosotros: [
-        { src: 'imagenes/muro-mamposteria.jpg', caption: 'Obra de mampostería tradicional realizada por ArteNat.' }
-      ],
-      muros: [
-        { src: 'imagenes/muro-contencion-piedra.jpg', caption: 'Muro de contención de piedra natural y gran solidez estructural.' },
-        { src: 'imagenes/muro-piedra.jpg', caption: 'Muro tradicional en piedra colocada a mano.' }
-      ],
-      revestimientos: [
-        { src: 'imagenes/revestimiento_fachada_6.jpg', caption: 'Vista lateral de fachada revestida en mampostería.' },
-        { src: 'imagenes/revestimiento_fachada.jpg', caption: 'Revestimiento artesanal de fachada en piedra clara.' },
-        { src: 'imagenes/revestimiento_fachada_2_r.jpg', caption: 'Detalle de esquinas y remates en fachada de piedra.' },
-        { src: 'imagenes/revestimiento_fachada_3.jpg', caption: 'Revestimiento exterior en tono calizo natural.' },
-        { src: 'imagenes/revestimiento_fachada_4.jpg', caption: 'Integración de piedra natural en arquitectura residencial.' },
-        { src: 'imagenes/revestimiento_fachada_5.jpg', caption: 'Aplacado en muro y fachada con junta trabajada.' },
-        { src: 'imagenes/revestimiento-rustico-junta-maeterial.jpg', caption: 'Detalle de mampostería rústica con junta de mortero.' },
-        { src: 'imagenes/rustico-ibizenco.jpg', caption: 'Muro estilo Rústico Ibicenco en piedra con tonos cálidos.' },
-        { src: 'imagenes/rustico-ibizenco_2.jpg', caption: 'Detalle de colocación artesanal en estilo ibicenco.' },
-        { src: 'imagenes/rustico-ibizenco_3.jpg', caption: 'Fachada con acabado rústico ibicenco en luz natural.' },
-        { src: 'imagenes/muro-revestimiento-piedra.jpg', caption: 'Muro revestido en piedra cortada y encajada.' }
-      ],
-      jardin: [
-        { src: 'imagenes/jardin-piedra-natural.jpg', caption: 'Proyecto de paisajismo, bancales y muros de jardín en piedra natural.' }
-      ]
-    };
-
-    let currentGallery = [];
-    let currentIndex = 0;
-
-    function openGallery(galleryKey, index = 0) {
-      if (!galleries[galleryKey]) return;
-      currentGallery = galleries[galleryKey];
-      currentIndex = index;
-      updateLightbox();
-      document.getElementById('lightboxModal').style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function updateLightbox() {
-      const item = currentGallery[currentIndex];
-      const imgElem = document.getElementById('lightboxImg');
-      
-      imgElem.src = item.src;
-      imgElem.alt = item.caption; // Corrección de accesibilidad
-      document.getElementById('lightboxCaption').innerText = item.caption + ` (${currentIndex + 1} de ${currentGallery.length})`;
-      
-      const btns = document.querySelectorAll('.lightbox-btn');
-      btns.forEach(btn => btn.style.display = currentGallery.length > 1 ? 'flex' : 'none');
-    }
-
-    function changeSlide(direction, event) {
-      if (event) event.stopPropagation();
-      currentIndex = (currentIndex + direction + currentGallery.length) % currentGallery.length;
-      updateLightbox();
-    }
-
-    function closeLightbox() {
-      document.getElementById('lightboxModal').style.display = 'none';
-      document.body.style.overflow = 'auto';
-    }
-
-    // Teclas del teclado
-    document.addEventListener('keydown', (e) => {
-      if (document.getElementById('lightboxModal').style.display === 'flex') {
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowLeft' && currentGallery.length > 1) changeSlide(-1);
-        if (e.key === 'ArrowRight' && currentGallery.length > 1) changeSlide(1);
-      }
-    });
-
-    // Clic fuera de la imagen para cerrar
-    document.getElementById('lightboxModal').addEventListener('click', (e) => {
-      if (e.target.id === 'lightboxModal') closeLightbox();
-    });
-
-    // GESTIÓN TÁCTIL (DESLIZAR CON EL DEDO / SWIPE)
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    const modal = document.getElementById('lightboxModal');
-
-    modal.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    modal.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-    }, { passive: true });
-
-    function handleSwipe() {
-      const swipeDistance = touchEndX - touchStartX;
-      if (Math.abs(swipeDistance) > 40 && currentGallery.length > 1) {
-        if (swipeDistance < 0) {
-          changeSlide(1);  // Deslizar hacia la izquierda -> Siguiente foto
-        } else {
-          changeSlide(-1); // Deslizar hacia la derecha -> Foto anterior
-        }
-      }
-    }
-  </script>
 
 </body>
 </html>
