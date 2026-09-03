@@ -6,6 +6,10 @@
   <title>Solicitar Presupuesto | Muros de Piedra y Mampostería ArteNat</title>
   <meta name="description" content="Pide presupuesto sin compromiso para trabajos de mampostería, piedra seca y restauración en las provincias de Alicante y Valencia. Contacta con Guillermo Riera.">
   <meta name="keywords" content="presupuesto mamposteria, presupuesto muros de piedra, precio piedra seca alicante, precio mamposteria valencia">
+  
+  <!-- Font Awesome para Iconos Oficiales -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
     :root {
       --color-primary: #8C6D53;
@@ -73,9 +77,31 @@
     .btn-submit { width: 100%; background: var(--color-primary); color: #FFF; border: none; padding: 0.85rem; font-size: 1.05rem; font-weight: 700; border-radius: 5px; cursor: pointer; transition: background 0.2s ease; margin-top: 0.5rem; }
     .btn-submit:hover { background: var(--color-primary-dark); }
 
-    /* BOTÓN FLOTANTE WHATSAPP */
-    .whatsapp-float { position: fixed; width: 55px; height: 55px; bottom: 25px; right: 25px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 999; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s; }
-    .whatsapp-float:hover { transform: scale(1.1); }
+    /* BOTÓN FLOTANTE WHATSAPP OFICIAL */
+    .whatsapp-float { 
+      position: fixed; 
+      width: 55px; 
+      height: 55px; 
+      bottom: 25px; 
+      right: 25px; 
+      background-color: #25d366; 
+      color: #FFF; 
+      border-radius: 50px; 
+      text-align: center; 
+      font-size: 32px; 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+      z-index: 999; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      text-decoration: none; 
+      transition: transform 0.2s ease, background-color 0.2s ease; 
+    }
+    .whatsapp-float:hover { 
+      transform: scale(1.1); 
+      color: #FFF; 
+      background-color: #20ba5a; 
+    }
 
     /* FOOTER OPTIMIZADO PARA MÓVILES */
     footer { 
@@ -224,8 +250,9 @@
     </div>
   </main>
 
+  <!-- BOTÓN FLOTANTE CON ICONO OFICIAL DE WHATSAPP -->
   <a href="https://wa.me/34649551184?text=Hola%20Guillermo,%20quisiera%20pedir%20presupuesto%20para%20un%20trabajo%20de%20mamposter%C3%ADa." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contacto directo por WhatsApp">
-    💬
+    <i class="fa-brands fa-whatsapp"></i>
   </a>
 
   <!-- FOOTER -->
