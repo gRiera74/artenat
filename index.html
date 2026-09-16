@@ -15,8 +15,14 @@
 
     // Definición de galerías de imágenes con soporte de pinch-to-zoom
     const galleriesData = {
+      destacado: [
+        { src: 'imagenes/focoymadera.jpg', width: 1200, height: 1600, alt: 'Detalle del revestimiento con iluminación rasante sobre piedra natural y madera.' },
+        { src: 'imagenes/entrada.jpg', width: 1600, height: 1200, alt: 'Mampostería tradicional con el portón de madera y acceso principal.' },
+        { src: 'imagenes/piedra.jpg', width: 1200, height: 1600, alt: 'Plano cerrado y detalle de la textura y colocación artesanal de la piedra.' },        
+        { src: 'imagenes/entrada-muro.jpg', width: 1200, height: 900, alt: 'Vista completa de la fachada y muro de piedra natural.' }
+      ],
       nosotros: [
-        { src: 'imagenes/muro-mamposteria.jpg', width: 1200, height: 900, alt: 'Obra de mampostería tradicional realizada por ArteNat.' }
+        { src: 'imagenes/entrada-muro.jpg', width: 1200, height: 900, alt: 'Fachada y cerramiento en piedra natural de mampostería artesanal.' }
       ],
       muros: [
         { src: 'imagenes/muro-contencion-piedra.jpg', width: 1200, height: 900, alt: 'Muro de contención de piedra natural y gran solidez estructural.' },
@@ -28,16 +34,16 @@
         { src: 'imagenes/revestimiento_fachada.jpg', width: 1200, height: 900, alt: 'Revestimiento artesanal de fachada en piedra clara.' },
         { src: 'imagenes/revestimiento_fachada_2_r.jpg', width: 1200, height: 900, alt: 'Detalle de esquinas y remates en fachada de piedra.' },
         { src: 'imagenes/revestimiento_fachada_3.jpg', width: 1200, height: 900, alt: 'Revestimiento exterior en tono calizo natural.' },
-        { src: 'imagenes/revestimiento_fachada_4.jpg', width: 1200, height: 900, alt: 'Integración de piedra natural en arquitectura residencial.' },
-        { src: 'imagenes/revestimiento_fachada_5.jpg', width: 1200, height: 900, alt: 'Aplacado en muro y fachada con junta trabajada.' },
+        { src: 'imagenes/revestimiento_fachada_4.jpg', width: 1200, height: 1600, alt: 'Integración de piedra natural en arquitectura residencial.' },
+        { src: 'imagenes/revestimiento_fachada_5.jpg', width: 1200, height: 1600, alt: 'Aplacado en muro y fachada con junta trabajada.' },
         { src: 'imagenes/revestimiento-rustico-junta-maeterial.jpg', width: 1200, height: 900, alt: 'Detalle de mampostería rústica con junta de mortero.' },
         { src: 'imagenes/rustico-ibizenco.jpg', width: 1200, height: 900, alt: 'Muro estilo Rústico Ibicenco en piedra con tonos cálidos.' },
         { src: 'imagenes/rustico-ibizenco_2.jpg', width: 1200, height: 900, alt: 'Detalle de colocación artesanal en estilo ibicenco.' },
-        { src: 'imagenes/rustico-ibizenco_3.jpg', width: 1200, height: 900, alt: 'Fachada con acabado rústico ibicenco en luz natural.' },
+        { src: 'imagenes/rustico-ibizenco_3.jpg', width: 1200, height: 1600, alt: 'Fachada con acabado rústico ibicenco en luz natural.' },
         { src: 'imagenes/muro-revestimiento-piedra.jpg', width: 1200, height: 900, alt: 'Muro revestido en piedra cortada y encajada.' }
       ],
       jardin: [
-        { src: 'imagenes/jardin-piedra-natural.jpg', width: 1200, height: 900, alt: 'Proyecto de paisajismo, bancales y muros de jardín en piedra natural.' }
+        { src: 'imagenes/jardin-piedra-natural.jpg', width: 1200, height: 1100, alt: 'Proyecto de paisajismo, bancales y muros de jardín en piedra natural.' }
       ]
     };
 
@@ -148,6 +154,22 @@
     .about-features li { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--color-secondary); font-size: 0.95rem; }
     .about-features svg { width: 20px; height: 20px; color: var(--color-primary); flex-shrink: 0; }
 
+    /* SECCIÓN TRABAJO DESTACADO */
+    .featured-section { padding: 4.5rem 1.5rem 3rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+    .featured-tag { text-align: center; color: var(--color-primary); font-size: 0.9rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; margin-bottom: 2.5rem; }
+    .featured-card { background: var(--color-surface); border-radius: 8px; border: 1px solid #EAE5DF; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.04); display: flex; flex-direction: column; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .featured-card:hover { transform: translateY(-4px); box-shadow: 0 8px 22px rgba(0,0,0,0.08); }
+    .featured-img-wrapper { height: 260px; overflow: hidden; background: #E5D9CC; }
+    .featured-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+    .featured-card-body { padding: 1.2rem; flex-grow: 1; }
+    .featured-card-body h3 { font-size: 1.15rem; color: var(--color-secondary); margin-bottom: 0.4rem; font-weight: 700; }
+    .featured-card-body p { font-size: 0.9rem; color: var(--color-muted); line-height: 1.4; }
+    
+    .featured-btn-container { text-align: center; margin-top: 1rem; }
+    .btn-featured-gallery { display: inline-block; background-color: var(--color-primary); color: #FFF; padding: 0.8rem 2rem; border-radius: 6px; font-weight: 700; text-decoration: none; transition: background-color 0.2s ease; cursor: pointer; border: none; font-size: 1rem; }
+    .btn-featured-gallery:hover { background-color: var(--color-primary-dark); }
+
     /* SECCIÓN SERVICIOS */
     section.content-section { padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto; }
     .section-title { text-align: center; font-size: 1.9rem; color: var(--color-secondary); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
@@ -210,6 +232,10 @@
     footer { background-color: var(--color-secondary); color: #FFFFFF; text-align: center; padding: 2rem 1rem; margin-top: 3rem; font-size: 0.9rem; border-top: 1px solid #4D443D; }
     footer a { color: #E6CBB3; font-weight: 700; text-decoration: none; }
 
+    @media (max-width: 900px) {
+      .featured-grid { grid-template-columns: 1fr; }
+      .featured-img-wrapper { height: 300px; }
+    }
     @media (max-width: 850px) {
       .about-grid { grid-template-columns: 1fr; }
       .about-img { height: 260px; }
@@ -257,6 +283,7 @@
 
     <nav class="main-nav">
       <a href="#nosotros" class="nav-link">Nosotros</a>
+      <a href="#destacado" class="nav-link">Trabajo Destacado</a>
       <a href="#servicios" class="nav-link">Servicios</a>
       <a href="#proceso" class="nav-link">Proceso</a>
       <a href="tel:+34649551184" class="phone-badge">📞 649 55 11 84</a>
@@ -277,7 +304,7 @@
   <!-- SECCIÓN QUIÉNES SOMOS / MAESTRÍA ARTESANAL -->
   <section class="about-section" id="nosotros">
     <div class="about-grid">
-      <img src="imagenes/muro-mamposteria.jpg" alt="Muro de mampostería realizada por ArteNat" class="about-img" onclick="openGallery('nosotros')">
+      <img src="imagenes/entrada-muro.jpg" alt="Muro de mampostería realizada por ArteNat" class="about-img" onclick="openGallery('nosotros')">
       <div class="about-text">
         <h2>Maestría Artesanal en Piedra Natural</h2>
         <p class="lead-text">Dirigido por Guillermo Riera Riera.</p>
@@ -299,6 +326,52 @@
           </li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN TRABAJO DESTACADO -->
+  <section id="destacado" class="featured-section" aria-label="Galería de trabajos destacados">
+    <div class="featured-tag">TRABAJO DESTACADO</div>
+    <h2 class="section-title">REVESTIMIENTO EN PIEDRA NATURAL</h2>
+    <p class="section-subtitle">Un acabado donde la colocación, el despiece y la textura de cada piedra forman parte del resultado.</p>
+
+    <div class="featured-grid">
+      <!-- Tarjeta 1: Iluminación y textura -->
+      <div class="featured-card" onclick="openGallery('destacado', 0)">
+        <div class="featured-img-wrapper">
+          <img src="imagenes/focoymadera.jpg" alt="Detalle del revestimiento con iluminación rasante">
+        </div>
+        <div class="featured-card-body">
+          <h3>Detalle del revestimiento</h3>
+          <p>La iluminación rasante realza el trabajo y la textura natural de la piedra.</p>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2: Acceso principal -->
+      <div class="featured-card" onclick="openGallery('destacado', 1)">
+        <div class="featured-img-wrapper">
+          <img src="imagenes/entrada.jpg" alt="Mampostería en portón">
+        </div>
+        <div class="featured-card-body">
+          <h3>Acceso principal</h3>
+          <p>Integración de la mampostería tradicional con el portón de madera.</p>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3: Textura y detalle -->
+      <div class="featured-card" onclick="openGallery('destacado', 2)">
+        <div class="featured-img-wrapper">
+          <img src="imagenes/piedra.jpg" alt="Plano cerrado de la piedra abujardada">
+        </div>
+        <div class="featured-card-body">
+          <h3>Textura</h3>
+          <p>Plano cerrado y textura para destacar el acabado del abujardado y la piedra.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="featured-btn-container">
+      <button class="btn-featured-gallery" onclick="openGallery('destacado', 0)">Ver galería completa</button>
     </div>
   </section>
 
