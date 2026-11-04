@@ -60,38 +60,38 @@
       <h1>Solicitar Presupuesto</h1>
       <p class="subtitle">Cuéntanos sobre tu proyecto y te contactaremos a la mayor brevedad sin compromiso.</p>
       
-      <form action="https://formsubmit.co/rierarierag@gmail.com" method="POST" id="budgetForm">
+      <!-- FORMULARIO ACTUALIZADO CON FORMinit -->
+      <form action="https://forminit.com/f/jnftb97ov9k" method="POST" id="budgetForm" enctype="multipart/form-data">
         
-        <input type="hidden" name="_subject" value="Nueva solicitud de presupuesto - ArteNat">
-        <input type="hidden" name="_next" value="https://www.artenat.es/gracias.html">
-        <input type="hidden" name="_captcha" value="false">
+        <!-- ID de Forminit (Obligatorio) -->
+        <input type="hidden" name="fi-form-id" value="jnftb97ov9k">
 
         <div class="form-row">
           <div class="col-half">
             <div class="form-group">
               <label for="nombre">Nombre y Apellidos *</label>
-              <input type="text" id="nombre" name="Nombre" required placeholder="Tu nombre completo">
+              <input type="text" id="nombre" name="fi-sender-Nombre" required placeholder="Tu nombre completo">
             </div>
           </div>
 
           <div class="col-half">
             <div class="form-group">
               <label for="email">Correo Electrónico *</label>
-              <input type="email" id="email" name="Email" required placeholder="tuemail@ejemplo.com">
+              <input type="email" id="email" name="fi-sender-email" required placeholder="tuemail@ejemplo.com">
             </div>
           </div>
 
           <div class="col-half">
             <div class="form-group">
               <label for="telefono">Teléfono (opcional)</label>
-              <input type="tel" id="telefono" name="Telefono" placeholder="600 00 00 00">
+              <input type="tel" id="telefono" name="fi-sender-Telefono" placeholder="600 00 00 00">
             </div>
           </div>
 
           <div class="col-half">
             <div class="form-group">
               <label for="servicio">Tipo de trabajo</label>
-              <select id="servicio" name="Tipo_de_Trabajo">
+              <select id="servicio" name="fi-select-Tipo_de_Trabajo">
                 <option value="Construcción de Muros de Contención / Cerramiento">Construcción de Muros de Piedra</option>
                 <option value="Revestimiento de Fachadas (Interior/Exterior)">Revestimiento / Chapado de Fachadas</option>
                 <option value="Restauración de Edificaciones Antiguas">Restauración y Patrimonio (Riuraus, etc.)</option>
@@ -104,7 +104,7 @@
           <div class="col-full">
             <div class="form-group">
               <label for="mensaje">Detalles de la obra o consulta</label>
-              <textarea id="mensaje" name="Mensaje" rows="3" placeholder="Ubicación aproximada, metros lineales o descripción del trabajo..."></textarea>
+              <textarea id="mensaje" name="fi-text-Mensaje" rows="3" placeholder="Ubicación aproximada, metros lineales o descripción del trabajo..."></textarea>
             </div>
           </div>
 
@@ -112,9 +112,9 @@
             <div class="form-group">
               <label>Adjuntar fotos o planos del proyecto (opcional - hasta 3 archivos)</label>
               <div class="file-grid">
-                <input type="file" id="attachment1" name="attachment_1" accept="image/*,.pdf">
-                <input type="file" id="attachment2" name="attachment_2" accept="image/*,.pdf">
-                <input type="file" id="attachment3" name="attachment_3" accept="image/*,.pdf">
+                <input type="file" id="attachment1" name="fi-file-adjunto1" accept="image/*,.pdf">
+                <input type="file" id="attachment2" name="fi-file-adjunto2" accept="image/*,.pdf">
+                <input type="file" id="attachment3" name="fi-file-adjunto3" accept="image/*,.pdf">
               </div>
             </div>
           </div>
@@ -143,21 +143,6 @@
       <span>Contacto: <a href="mailto:rierarierag@gmail.com">rierarierag@gmail.com</a></span>
     </p>
   </footer>
-
-  <script>
-    // Ajusta el enctype dinámicamente si el usuario selecciona archivos
-    document.getElementById('budgetForm').addEventListener('submit', function(e) {
-      const file1 = document.getElementById('attachment1').files.length;
-      const file2 = document.getElementById('attachment2').files.length;
-      const file3 = document.getElementById('attachment3').files.length;
-
-      if (file1 > 0 || file2 > 0 || file3 > 0) {
-        this.enctype = "multipart/form-data";
-      } else {
-        this.removeAttribute('enctype');
-      }
-    });
-  </script>
 
 </body>
 </html>
